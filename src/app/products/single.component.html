@@ -1,0 +1,182 @@
+<div class="detail-block">
+     <div *ngIf="productLoaded" class="row single-product">
+
+          <div class="col-xs-12 col-sm-6 col-md-5">
+               <div class="owl-single-product">
+                    <img class="img-responsive" bind src="../assets/img/products/{{ product?.images[0]}}" />
+               </div>
+               <div class="single-product-gallery-thumbs gallery-thumbs">
+                    <div id="owl-single-product-thumbnails" class="owl-carousel owl-theme">
+
+                    </div>
+
+               </div>
+
+          </div>
+
+          <div class="col-sm-6 col-md-7 product-info-block">
+               <div class="product-info">
+                    <h1 class="name"> {{ product?.name}}</h1>
+                    <div class="rating-reviews m-t-20">
+                         <div class="row">
+                              <div class="col-md-10">
+
+                              <span class="stars">
+                                        <span [ngStyle]="{ 'width': product?.avRating + '%' }"></span>                                  
+                              </span>  
+                               
+                              </div>
+
+                         </div>
+                         <!-- /.row -->
+                    </div>
+
+                    <div class="description-container m-t-20">
+                         {{ product?.description}}
+                    </div>
+
+                    <div class="price-container info-container m-t-20">
+                         <div class="row">
+
+                              <div class="col-sm-6">
+                                   <div class="price-box">
+                                        <span class="price"> {{ product?.price | currency:'USD':true}}</span>
+
+                                   </div>
+                              </div>
+
+                              <div class="col-sm-6">
+                                   <div class="favorite-button m-t-10">
+                                        <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="" href="#" data-original-title="Wishlist">
+                                             <i class="fa fa-heart"></i>
+                                        </a>
+                                        <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="" href="#" data-original-title="Add to Compare">
+                                             <i class="fa fa-signal"></i>
+                                        </a>
+                                        <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="" href="#" data-original-title="E-mail">
+                                             <i class="fa fa-envelope"></i>
+                                        </a>
+                                   </div>
+                              </div>
+
+                         </div>
+                         <!-- /.row -->
+                    </div>
+
+                    <div class="quantity-container info-container">
+                         <div class="row">
+
+                              <div class="col-sm-2">
+                                   <span class="label">Qty :</span>
+                              </div>
+
+                              <div class="col-sm-2">
+                                   <div class="cart-quantity">
+                                        <div class="quant-input">
+                                             <div class="arrows">
+                                                  <div class="arrow plus gradient">
+                                                       <span class="ir">
+                                                            <i class="icon fa fa-sort-asc"></i>
+                                                       </span>
+                                                  </div>
+                                                  <div class="arrow minus gradient">
+                                                       <span class="ir">
+                                                            <i class="icon fa fa-sort-desc"></i>
+                                                       </span>
+                                                  </div>
+                                             </div>
+                                             <input type="text" value="1">
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="col-sm-7">
+                                   <a href="#" class="btn btn-primary">
+                                        <i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+                              </div>
+
+
+                         </div>
+                         <!-- /.row -->
+                    </div>
+
+
+               </div>
+          </div>
+
+
+     </div>
+
+</div>
+<div class="detail-block m-t-10 review-wrap">
+     <h3>Customer Reviews</h3>
+     <div class="reviews">
+          <div *ngFor="let review of reviews" class="review">
+               <div class="review-title">
+                    <span class="summary">{{review?.summary}}</span>
+                    <span class="reviewer">
+                         <i class="fa fa-user"></i>
+                         <span>{{review?.username}}</span>
+                    </span>
+               </div>
+               <div class="text">{{review?.review}}</div>
+          </div>
+     </div>
+
+     <div class="review-form">
+          <div class="form-container">
+               <div class="row">
+                         <fieldset class="rating">
+                                   <ng-container *ngFor="let rateVal of [5, 4, 3, 2, 1]">
+                                        <!-- full star -->
+                                        <input (click)="rateProduct(rateVal)" [id]="'star'+rateVal" [value]="rateVal-0.5" name="rating" type="radio" />
+                                        <label class="full" [for]="'star'+rateVal"></label>
+                                        <!-- half star -->
+                                        <input (click)="rateProduct(rateVal-0.5)" [value]="rateVal-0.5" [id]="'halfstar'+rateVal" name="rating" type="radio" />
+                                        <label class="half" [for]="'halfstar'+rateVal"></label>
+                                   </ng-container>
+                              </fieldset>
+               </div>
+               <form novalidate [formGroup]="reviewFormGroup" class="cnt-form">
+
+                    <div class="row">
+                         <div class="col-sm-6">
+                              <div class="form-group">
+                                   <label for="exampleInputName">Your Name
+                                        <span class="astk">*</span>
+                                   </label>
+                                   <input type="text" formControlName="username" class="form-control txt" id="username" placeholder="">
+                              </div>
+                              <!-- /.form-group -->
+                              <div class="form-group">
+                                   <label for="exampleInputSummary">Summary
+                                        <span class="astk">*</span>
+                                   </label>
+                                   <input type="text" class="form-control txt" formControlName="summary" id="summary" placeholder="">
+                              </div>
+                              <!-- /.form-group -->
+                         </div>
+
+                         <div class="col-md-6">
+                              <div class="form-group">
+                                   <label for="exampleInputReview">Review
+                                        <span class="astk">*</span>
+                                   </label>
+                                   <textarea class="form-control txt txt-review" formControlName="review" id="review" rows="4" placeholder=""></textarea>
+                              </div>
+                              <!-- /.form-group -->
+                         </div>
+                    </div>
+                    <!-- /.row -->
+
+                    <div class="action text-right">
+                         <button (click)="submitReview()" [disabled]="reviewFormGroup.invalid" class="btn btn-primary btn-upper">SUBMIT REVIEW</button>
+                    </div>
+                    <!-- /.action -->
+
+               </form>
+               <!-- /.cnt-form -->
+          </div>
+          <!-- /.form-container -->
+     </div>
+</div>

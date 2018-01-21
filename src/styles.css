@@ -1,1 +1,249 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: #f3f3f3 !important;
+}
+
+.navbar-default {
+    background-color: #4ea6bc !important;
+    padding: 15px;
+    border-radius: 0 !important;
+}
+
+.panel {
+    border-radius: 0 !important;
+}
+
+.panel-heading {
+    background: #fff !important;
+    border-bottom: 1px solid #e3e3e3 !important;
+    padding-bottom: 10px !important;
+    padding: 15px 20px !important;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar-brand{
+     color:#fff !important;
+}
+
+
+/****** Style Star Rating Widget *****/
+
+
+/* fieldset, label { margin: 0; padding: 0; } */
+
+.rating {
+    border: none;
+    float: left;
+}
+
+.rating>input {
+    display: none;
+}
+
+.rating>label:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
+
+.rating>.half:before {
+    content: "\f089";
+    position: absolute;
+}
+
+.rating>label {
+    color: #ddd;
+    float: right;
+}
+
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating>input:checked~label,
+
+/* show gold star when clicked */
+
+.rating:not(:checked)>label:hover,
+
+/* hover current star */
+
+.rating:not(:checked)>label:hover~label {
+    color: #FFD700;
+}
+
+
+/* hover previous stars in list */
+
+.rating>input:checked+label:hover,
+
+/* hover current star when changing rating */
+
+.rating>input:checked~label:hover,
+.rating>label:hover~input:checked~label,
+
+/* lighten current selection */
+
+.rating>input:checked~label:hover~label {
+    color: #FFED85;
+}
+
+h5{
+     color: #333;
+     font-weight: 700;
+}
+
+.price {
+     color: #333;
+     font-weight: 700;
+    font-size: 14px;
+ }
+
+ .product-body{
+      cursor: pointer;
+ }
+
+ .detail-block {
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+    padding: 20px;
+    overflow: hidden;
+}
+
+.single-product .product-info-block .name {
+    margin-top: 0px;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.single-product .product-info .description-container {
+    line-height: 20px;
+    color: #666666;
+}
+
+.m-t-20 {
+    margin-top: 20px;
+}
+
+.m-t-10 {
+    margin-top: 10px;
+}
+
+.single-product .product-info .price-container {
+    border-bottom: 1px solid #F2F2F2;
+    border-top: 1px solid #F2F2F2;
+    margin-bottom: 0;
+    padding: 20px 0;
+}
+
+.single-product .product-info .price-container .price-box .price {
+    color: #ff7878;
+}
+
+.single-product .product-info .price-container .price-box .price {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 50px;
+}
+
+.single-product .product-info .quantity-container {
+    margin-bottom: 0;
+    padding: 20px 0;
+}
+
+.single-product .product-info .quantity-container .label {
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 35px;
+    text-transform: uppercase;
+    color: #666666;
+    padding: 0px;
+    font-weight: normal;
+}
+
+.single-product .product-info .quantity-container .cart-quantity .quant-input {
+    display: inline-block;
+    height: 35px;
+    position: relative;
+    width: 70px;
+}
+
+.single-product .product-info .quantity-container .cart-quantity .quant-input input {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #f2f2f2;
+    box-sizing: border-box;
+    font-size: 15px;
+    height: 35px;
+    left: 0;
+    padding: 0 20px 0 18px;
+    position: absolute;
+    top: 0;
+    width: 70px;
+    z-index: 1;
+}
+
+.single-product .product-info .quantity-container .cart-quantity .quant-input .arrows {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    height: 100%;
+}
+
+.single-product .product-info .quantity-container .cart-quantity .quant-input .arrows .arrow {
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
+    width: 40px;
+    cursor: pointer;
+}
+
+.single-product .product-info .quantity-container .cart-quantity .quant-input .arrows .arrow .ir .icon.fa-sort-asc {
+    top: 5px;
+}
+
+.single-product .product-info .quantity-container .cart-quantity .quant-input .arrows .arrow .ir .icon {
+    position: relative;
+}
+
+.review-wrap h3{
+    color: #666666;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 0 0 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.review{
+    margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif, sans-serif;
+    text-transform: none;
+    background: #f8f8f8;
+    padding: 20px;
+}
+
+.summary {
+    color: #666666;
+    font-size: 14px;
+    font-weight: normal;
+    margin-right: 10px;
+    font-style: italic;
+}
+
+span.stars, span.stars span {
+    display: block;  
+    background: url('./assets/img/stars.png') 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}

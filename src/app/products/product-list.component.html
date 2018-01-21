@@ -1,0 +1,49 @@
+
+            <section class="panel panel-default">
+              <div class="panel-heading">
+                <h2 class="panel-title">
+                  Featured Products
+                </h2>
+        
+              </div>
+              <div class="panel-body">
+        
+                <div *ngFor="let product of products" class="col-md-4">
+                  <div class="panel">
+                    <div style="padding:0" class="panel-body product-body" [routerLink]="['/product',product.id,product.slug]">
+                      <div class="product-image" >
+                        <img class="img-responsive" bind src="../assets/img/products/{{product.images[0]}}" alt="">
+                      </div>
+        
+                    </div>
+                    <div style="padding:1px 9px" class="panel-footer">
+                      
+                        <div class="row">
+                            <div class="col-md-12">
+                            <h5>{{product.name}}</h5>
+                          </div>
+                          </div>
+                      <div class="row">
+                          <div class="col-md-8">
+                              <span class="stars">
+                                  <span [ngStyle]="{ 'width': product.avRating + '%' }"></span>                                  
+                              </span>                         
+                        </div>
+        
+                        <div class="col-md-4">
+                          <h6 class="price" style="text-align:right">
+                            {{product.price | currency:'USD':true}}
+                          </h6>
+                        </div>
+        
+                      </div>
+                      
+                  
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+        
+            </section>
+       
